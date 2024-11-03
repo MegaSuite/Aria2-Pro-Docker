@@ -14,7 +14,7 @@
 FROM p3terx/s6-alpine
 
 RUN apk add --no-cache jq findutils && \
-    curl -fsSL git.io/aria2c.sh | bash && \
+    bash aria2-install.sh && \
     rm -rf /var/cache/apk/* /tmp/*
 
 COPY rootfs /
