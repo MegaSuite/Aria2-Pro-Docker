@@ -13,11 +13,11 @@
 
 FROM p3terx/s6-alpine
 
+COPY rootfs /
+
 RUN apk add --no-cache jq findutils && \
     bash aria2-install.sh && \
     rm -rf /var/cache/apk/* /tmp/*
-
-COPY rootfs /
 
 ENV S6_BEHAVIOUR_IF_STAGE2_FAILS=1 \
     RCLONE_CONFIG=/config/rclone.conf \
